@@ -2,7 +2,7 @@
 defaults: &defaults
   docker:
     - image: circleci/node:13.8.0
-  working_directory: ~/
+  # working_directory: ~/
   
 version: 2.1
 
