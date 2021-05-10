@@ -6,16 +6,17 @@ defaults: &defaults
   
 version: 2.1
 
-commands:
-  checkout_code:
-    steps:
-      - checkout
+# commands:
+#   checkout_code:
+#     steps:
+#       - checkout
 
 jobs:
   build:
     <<: *defaults
     steps:
-      - checkout_code
+      # - checkout_code
+      - checkout
       - run: npm i
       - save cache:
           key: "npm-packages"
@@ -26,7 +27,8 @@ jobs:
   test:
     <<: *defaults
     steps:
-      - checkout_code
+      # - checkout_code
+      - checkout
       - restore_cache:
           keys:
             - "npm-packages"
@@ -36,7 +38,8 @@ jobs:
   analyze:
     <<: *defaults
     steps:
-      - checkout_code
+      # - checkout_code
+      - checkout
       - restore_cache:
           keys:
             - "npm-packages"
